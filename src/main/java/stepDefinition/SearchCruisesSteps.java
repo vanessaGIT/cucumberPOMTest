@@ -47,4 +47,9 @@ public class SearchCruisesSteps extends BaseSteps {
     public void iValidateTheResultOfTheSearch() throws InterruptedException {
         this.searchModel.validateResultsSearch();
     }
+
+    @And("Validate the filter price")
+    public void validateTheFilterPrice() throws InterruptedException {
+        this.searchModel.validateFilterPrice();
+    }
 }
