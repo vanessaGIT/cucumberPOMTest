@@ -12,10 +12,9 @@ import utils.Context;
 
 public class SearchCruisesSteps extends BaseSteps {
 
-    public SearchCruisesSteps() {
-        super();
-        this.homeModel = new HomeModel(this.driver);
-        this.searchModel = new SearchModel(this.driver);
+    public SearchCruisesSteps(Context context) {
+        this.homeModel = new HomeModel(context.getDriver());
+        this.searchModel = new SearchModel(context.getDriver());
     }
 
     @Given("I open the Carnival page")

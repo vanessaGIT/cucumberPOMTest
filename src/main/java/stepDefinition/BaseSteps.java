@@ -13,9 +13,9 @@ public class BaseSteps {
     protected HomeModel homeModel;
     protected SearchModel searchModel;
 
-    public BaseSteps() {
-        String url=System.getProperty("user.dir")+File.separator+"src"+ File.separator+"main"+ File.separator+"resources"+ File.separator+"ChromeDriver"+ File.separator+"chromedriver";
-        System.setProperty("webdriver.chrome.driver",url);
-        this.driver = new ChromeDriver();
-    }
+    // public BaseSteps() {
+    //     String url=System.getProperty("user.dir")+File.separator+"src"+ File.separator+"main"+ File.separator+"resources"+ File.separator+"ChromeDriver"+ File.separator+"chromedriver";
+    //     System.setProperty("webdriver.chrome.driver",url);
+    //     this.driver = new ChromeDriver();
+    // }
 }

@@ -8,3 +8,4 @@ Feature: Validate the operation of the Home page
     And I enter Duration
     And I give a click on Search Cruises
     Then I validate the result of the search
+
