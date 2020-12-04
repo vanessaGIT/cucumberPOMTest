@@ -1,9 +1,10 @@
 package stepDefinition;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import models.HomeModel;
 import models.SearchModel;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 
