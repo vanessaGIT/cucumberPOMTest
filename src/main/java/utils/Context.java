@@ -1,12 +1,18 @@
 package utils;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.io.File;
 
 public class Context {
     private WebDriver driver;
 
     public Context() {
+        String url=System.getProperty("user.dir")+ File.separator+"src"+ File.separator+"main"+ File.separator+"resources"+ File.separator+"ChromeDriver"+ File.separator+"chromedriver";
+        System.setProperty("webdriver.chrome.driver",url);
         this.driver = new ChromeDriver();
     }
 

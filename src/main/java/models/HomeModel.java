@@ -12,10 +12,11 @@ import java.util.List;
 
 public class HomeModel {
     private WebDriver driver;
-    HomeUi homeui = new HomeUi();
+    private HomeUi homeui;
 
     public HomeModel(WebDriver driver) {
         this.driver = driver;
+        this.homeui = new HomeUi();
     }
 
     public void openPage() throws InterruptedException {

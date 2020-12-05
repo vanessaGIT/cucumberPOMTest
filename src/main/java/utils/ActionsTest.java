@@ -1,6 +1,7 @@
 package utils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -32,5 +33,28 @@ public class ActionsTest {
         }
         Thread.sleep(1000);
         return waitForElement(driver, locator, timeOut - 1);
+    }
+
+    public static WebElement waitForElement(WebDriver driver, By locator, String text, int timeOut) throws InterruptedException {
+        if(timeOut == 0) {
+            return null;
+        }
+        List<WebElement> elements = driver.findElements(locator);
+        if(elements.size() > 0) {
+            for (WebElement item: elements) {
+                if(item.getText() == text) {
+                    return item;
+                } else {
+                    return waitForElement(driver, locator, text, timeOut - 1);
+                }
+            }
+        }
+        Thread.sleep(1000);
+        return waitForElement(driver, locator, timeOut - 1);
+    }
+
+    public static void scroll(WebDriver driver, int pixels) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0," + pixels + ")");
     }
 }

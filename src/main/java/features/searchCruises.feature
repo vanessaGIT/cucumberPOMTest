@@ -1,5 +1,6 @@
-Feature: Validate the operation of the Home page
-  -- Validate the search form and other operations
+Feature: Validate the search of the cruise to The Bahamas
+  -- As a user I want to search cruises to The Bahamas with duration between 6 and 9 days so that I will visualize all the options to choose one.
+     Right now, I don’t care about departure port.
 
   Scenario: Validate the search form
     Given I open the Carnival page

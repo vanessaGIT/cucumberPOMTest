@@ -1,5 +1,6 @@
 package models;
 
+import UiObjects.ItineraryUi;
 import UiObjects.SearchUi;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,10 +13,12 @@ import java.util.List;
 public class SearchModel {
     private WebDriver driver;
     private SearchUi searchUi;
+    private ItineraryUi itineraryUi;
 
     public SearchModel(WebDriver driver) {
         this.driver = driver;
         this.searchUi = new SearchUi();
+        this.itineraryUi = new ItineraryUi();
     }
 
     public void validateResultsSearch() throws InterruptedException {
@@ -26,11 +29,18 @@ public class SearchModel {
             return;
         }
         for (WebElement item : velas) {
-            WebElement day = driver.findElement(By.cssSelector("span.cgc-cruise-glance__days.ng-binding"));
+            WebElement day = driver.findElement(searchUi.lbDayCruise);
             if(Integer.parseInt(day.getText()) < 6 || Integer.parseInt(day.getText()) > 9) {
                 System.out.println("error agregarlo al reporte");
             }
         }
+    }
+
+    public void selectCruise() throws InterruptedException {
+        WebElement contentResults = ActionsTest.waitForElement(driver, searchUi.contentResults, 5);
+        List<WebElement> cruises = contentResults.findElements(By.tagName("article"));
+        cruises.get(0).findElement(searchUi.btnLearnMore).click();
+        ActionsTest.waitForElement(driver, itineraryUi.booking, 5);
     }
 
     public void validateFilterPrice() throws InterruptedException {
